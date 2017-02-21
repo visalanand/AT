@@ -1,51 +1,79 @@
 package stacks;
 
+import java.util.ArrayList;
 
-	public class CircularArrayQueue
-	{
-		private int head;
-		private int tail;
-		private int theSize;
-		private Object[] elements;
-		public CircularArrayQueue(int capacity) { 
-			elements = new Object[capacity];
-			theSize = 1;
-			head = 0;
-			tail = 0;
-		}
-		//Zedai
-		public void add(Object x) {
-			if (tail == elements.length){
-				Object[] temp = new Object[elements.length+1];
-				int count = 0;
-				for (int a = 0; a< elements.length;a++){
-					temp[count++] = elements[a];
+public class CircularArrayQueue{
+private int head; 
+private int tail;
+private int theSize;
+private Object[] elements;
+
+public CircularArrayQueue(int capacity) {
+	head = -1;
+	tail = -1;
+	theSize = 0;
+	elements = new Object[capacity];
+} 
+public void add(Object x) { 
+	if(head == -1){
+		head = 0;
+		tail = 1;
+		theSize = 1;
+		elements[0] = x;
+	}
+	else{
+		if(tail == elements.length)
+			for(int i = 0; i < head; i++)
+				if(elements[i] == null){
+					tail = i;
+					break;
 				}
-				
-			}
-			
-			
+		if(tail == elements.length || tail == head){
+			doubleIt();
 			elements[tail] = x;
-			
-			tail = (tail+1)%theSize;
-			theSize++;
+			tail++;
 		}
-		public Object remove() {
-			Object n = elements[head];
-			head = (head+1)%theSize;
-			theSize--;
-			return n;
+		else{
+			elements[tail] = x;
+			tail++;
 		}
-		public int size() {
-			return theSize;
-		}
-		public String toString (){
-			String s ="";
-			for (Object n: elements){
-				s+= n+ " ";
-			}
-			return s;
-		}
+	}
+	
+	theSize++;
+} 
+private void doubleIt(){
+	Object[] doubled = new Object[elements.length * 2];
+	int index = 0;
+	int size = theSize;
+	while(theSize > 0){
+		doubled[index] = remove();
+		index++;
+	}
+	
+	head = 0;
+	tail = size - 1;
+	theSize = size;
+	elements = doubled;	
+}
+public Object remove() {
+	Object object = elements[head];
+	elements[head] = null;
+	head++;
+	if(head == elements.length)
+		head = 0;
+	theSize--;
+	return object;
+} 
+public int size() { 
+	return theSize;
+}
+public String toString(){
+	String s = "";
+	for(Object x : elements)
+		s += x +" ";
+	
+	return s;
+}
 		public static void main (String[] args){
 			
 		
