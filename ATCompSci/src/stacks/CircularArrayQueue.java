@@ -29,7 +29,7 @@ public void add(Object x) {
 					break;
 				}
 		if(tail == elements.length || tail == head){
-			doubleIt();
+			DoubleArray();
 			elements[tail] = x;
 			tail++;
 		}
@@ -41,19 +41,19 @@ public void add(Object x) {
 	
 	theSize++;
 } 
-private void doubleIt(){
-	Object[] doubled = new Object[elements.length * 2];
+private void DoubleArray(){
+	Object[] lengthDoubled = new Object[elements.length * 2];
 	int index = 0;
 	int size = theSize;
 	while(theSize > 0){
-		doubled[index] = remove();
+		lengthDoubled[index] = remove();
 		index++;
 	}
 	
 	head = 0;
 	tail = size - 1;
 	theSize = size;
-	elements = doubled;	
+	elements = lengthDoubled;	
 }
 public Object remove() {
 	Object object = elements[head];

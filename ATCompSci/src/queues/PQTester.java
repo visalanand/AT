@@ -13,65 +13,44 @@ import java.util.PriorityQueue;
 
 public class PQTester
 {
-	public PriorityQueue<String> pQueue;
-	public String min ;
+	private Queue<String> pQueue;
+
 	public PQTester()
 	{
-		pQueue = new PriorityQueue<String>();
+		setPQ("");
 	}
 
 	public PQTester(String list)
 	{
-		pQueue = new PriorityQueue<String>();
-		String [] li = list.split(" ");
-		for (String s : li){
-			pQueue.add(s);
-		}
+		setPQ(list);
 	}
 
 	public void setPQ(String list)
 	{
-		String [] lis = list.split(" ");
 		pQueue = new PriorityQueue<String>();
-		for (String s : lis)
-		pQueue.add(s);
-		
+		for(String s : list.split(" "))
+		{
+			pQueue.add(s);
+		}
 	}
 	
 	public Object getMin()
-	{	PriorityQueue<String> pq = new PriorityQueue<String>();
-		
-		String b = pQueue.remove();
-		pq.add(b);
-		while (!pQueue.isEmpty()){
-			String a = pQueue.remove();
-			pq.add(a);
-			if (b.compareTo(a)> 0)
-			b = a;
-		}
-		pQueue = pq;
-		min = b;
-		return b;
+	{
+		return pQueue.peek();
 	}
 	
 	public String getNaturalOrder()
 	{
-			PriorityQueue<String> pq = new PriorityQueue<String>();
-
-		String s = "";
-		String a= pQueue.remove();
-		s = s+ min + " ";
-		while (!pQueue.isEmpty()){
-			a  = pQueue.remove();
-			s = s+ a + " ";
-			pq.add(a);
+		String output="";
+		while(!pQueue.isEmpty())
+		{
+			output+=pQueue.remove()+ " ";
 		}
-		pQueue = pq;
-		return s;		
-	}
-	public String toString (){
-		return pQueue.toString();
+		return output;		
 	}
 
-	//write a toString method
+	public String toString()
+	{
+		return ""+pQueue;
+	}
 }
