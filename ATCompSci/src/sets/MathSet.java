@@ -22,7 +22,9 @@ public class MathSet
 
 	public Set<Integer> union()
 	{
-		return null;
+		Set<Integer> combined = new TreeSet<Integer>(one);
+		combined.addAll(two);
+		return combined;
 	}
 
 	public Set<Integer> intersection()
