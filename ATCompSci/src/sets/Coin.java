@@ -1,11 +1,11 @@
 package sets;
 
-public class Coin implements Comparable{
+public class Coin {
 	public String denom;
 	public int year;
 	
 	
-	public Coin(String _denom, int _year){
+	public Coin( int _year,String _denom){
 		denom = _denom;
 		year = _year;
 		
@@ -32,23 +32,28 @@ public class Coin implements Comparable{
 	}
 
 
-	@Override
-	public int compareTo(Object _coin) {
+	
+	public int isUnique() {
 		// TODO Auto-generated method stub
-		Coin coin = (Coin)_coin;
+		Coin coin = this;
 		int a = year/10;
 		int b = coin.getYear()/10;
 		  
 		
 		
-		if (coin.getDenom()!= denom && a!= b  ){
+		if (!coin.getDenom().equals(denom) && a!= b  ){
 			return 1;
 		}
-		if (coin.getDenom() == denom && a==b)
+		if (coin.getDenom().equals(denom) && a==b)
 		return 0;
 		
 		
 		return -1;
+	}
+	
+	
+	public int hashCode(){
+		return year * denom.hashCode();
 	}
 	
 	
