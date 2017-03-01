@@ -43,7 +43,7 @@ public class Patient implements Comparable {
 		if (priority > pat.priority){
 			return 1;
 		}
-		else if (priority == pat.priority)
+		else if (priority == pat.priority  )
 			return 0;
 		
 		return -1;
@@ -52,7 +52,7 @@ public class Patient implements Comparable {
 		
 	}
 	public String toString(){
-		return "Name " + name ;
+		return "" + name ;
 	}
 	
 }
