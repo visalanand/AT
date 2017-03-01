@@ -3,8 +3,10 @@ package queues;
 public class Patient implements Comparable {
 	public String name;
 	public int priority;
-	public Patient(String _name, int _priority)
+	public int placeInQueue; 
+	public Patient(String _name, int _priority, int pl)
 	{
+		placeInQueue = pl;
 		name = _name;
 		priority = _priority;
 		
@@ -43,8 +45,11 @@ public class Patient implements Comparable {
 		if (priority > pat.priority){
 			return 1;
 		}
-		else if (priority == pat.priority  )
-			return 0;
+		else if (priority == pat.priority && pat.placeInQueue> placeInQueue )
+			return -1;
+		else if (priority == pat.priority && pat.placeInQueue< placeInQueue ){
+			return 1;
+		}
 		
 		return -1;
 		

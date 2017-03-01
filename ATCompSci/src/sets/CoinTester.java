@@ -21,12 +21,12 @@ public class CoinTester {
 	
 		
 		for ( int x =0; x< coin.size();x++){
-			myHash.add(coin.get(x));
+		System.out.println(	myHash.add(coin.get(x)));
 		}
 		
 		
 		for (int a = 0; a< coin.size();a++){
-			if (coin.get(a).isUnique() == 1){
+			if (myHash.contains(coin.get(a))){
 				System.out.print(coin.get(a));
 			}
 		}

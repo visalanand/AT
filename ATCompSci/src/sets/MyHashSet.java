@@ -10,10 +10,24 @@ public class MyHashSet {
 	public MyHashSet() {
 		linked = new LinkedList<Integer>();
 	}
+	
+	public int size (){
+		return linked.size();
+	}
+	
+	public boolean contains(Coin coin){
+			for (int x =0; x<linked.size();x++){
+				if (linked.get(x) == coin.hashCode()){
+					linked.remove(x);
+					return true;
+				}
+			}
+			return false;
+	}
 
 	public boolean add(Coin coin) {
 
-		if (linked.contains(coin.hashCode())) {
+		if (!linked.contains(coin.hashCode())) {
 
 			linked.add(coin.hashCode());
 			return true;
