@@ -1,7 +1,5 @@
 package sets;
 
-import java.util.ArrayList;
-
 public class Coin {
 	public String denom;
 	public int year;
@@ -35,32 +33,32 @@ public class Coin {
 
 
 	
-//	public int isUnique(ArrayList<Coin>ar) {
-//		// TODO Auto-generated method stub
-//
-//		int a = year/10;
-//		
-//		  int unique = 0;
-//		for ( int x = 0; x< ar.size();x++){
-//			if (a!= ar.get(x).year/10 && denom != ar.get(x).denom ){
-//				
-//			}
-//			else{
-//				unique++;
-//			}
-//		}
-//	}
-//	
+	public int isUnique() {
+		// TODO Auto-generated method stub
+		Coin coin = this;
+		int a = year/10;
+		int b = coin.getYear()/10;
+		  
+		
+		if (!coin.getDenom().equals(denom) && a!= b  ){
+			return 1;
+		}
+		if (coin.getDenom().equals(denom) && a==b)
+		return 0;
+		
+		
+		return -1;
+	}
+	
 	
 	public int hashCode(){
 		return year/10 * denom.hashCode();
 	}
-	public String toString(){
-		return denom+ " "+ year+ " ";
+	
+	
+	public String toString (){
+		return denom+ " "+year+" ";
 	}
-	
-	
-	
 	
 	
 
