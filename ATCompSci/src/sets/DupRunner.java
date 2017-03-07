@@ -9,6 +9,6 @@ public class DupRunner
 		String a = "abcdefghijklmnde";
 		System.out.println("Original List: "+ a);
 		System.out.println("Uniques: "+UniquesDupes.getUniques(a));
-		System.out.println("Duplicates: "+ UniquesDupes.getDupes(a));a
+		System.out.println("Duplicates: "+ UniquesDupes.getDupes(a));
 	}
 }
