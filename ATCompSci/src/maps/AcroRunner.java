@@ -1,4 +1,4 @@
-
+package maps;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
@@ -8,6 +8,7 @@ public class AcroRunner
 {
 	public static void main( String args[] ) throws IOException
 	{
-		
+		Acronyms ac = new Acronyms();
+		System.out.println(ac.readFile());
 	}
 }
