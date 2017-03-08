@@ -32,7 +32,7 @@ public class Relatives {
 		size = Integer.parseInt(str.nextToken());
 		str = new StringTokenizer(br.readLine());
 		String person, related;
-		for (int x = 0; x < size-1; x++) {
+		for (int x = 0; x < size - 1; x++) {
 			person = str.nextToken();
 			related = str.nextToken();
 			if (map.get(person) == null) {
@@ -48,25 +48,21 @@ public class Relatives {
 
 			str = new StringTokenizer(br.readLine());
 		}
-		
-		Set<String> keys = map.keySet(); 
-		Iterator<String> iter = keys.iterator();
+
+		Set<String> set = map.keySet();
+		Iterator<String> iter = set.iterator();
+		String a ="";
 		String out = "";
-		String n = "";
-		for (int x =0; x<keys.size();x++){
+		while(iter.hasNext()){
+			a = iter.next();
+			out += a + " relatives are "+ map.get(a)+"\n";
 			
-			try{
-				n = iter.next();
-			out += n + " relatives are "+map.get(n)+"\n";
-			map.remove(n);
-			}catch(Exception E){
-				
-			}
-		
 		}
+			
+			
 		
+
 		return out;
-		
 
 	}
 
@@ -75,7 +71,7 @@ public class Relatives {
 		String n = "";
 		while (s != null) {
 
-			n += s + " relatives are " + map.get(s)+"\n";
+			n += s + " relatives are " + map.get(s) + "\n";
 
 			s = br.readLine();
 		}
