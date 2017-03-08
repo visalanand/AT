@@ -10,7 +10,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class Acronyms {
-	private Map<String, String> acronymTable;
+	public Map<String, String> acronymTable;
 
 	public Acronyms() {
 		acronymTable = new HashMap<String,String>();
@@ -21,7 +21,7 @@ public class Acronyms {
 		StringTokenizer str = new StringTokenizer(buff.readLine());
 		int a = Integer.parseInt(str.nextToken());
 		String s = "";
-		for (int x = 0; x < a; x++) {
+		for (int x = 0; x <= a; x++) {
 			s = buff.readLine();
 			str = new StringTokenizer(s);
 			acronymTable.put(str.nextToken(), s.substring(s.indexOf("- ")+2));
@@ -30,6 +30,9 @@ public class Acronyms {
 		while (str!= null){
 			while (str.hasMoreTokens()){
 				String token = str.nextToken();
+				if (token.indexOf('.')>-1){
+				token=	token.substring(0, token.indexOf('.'));
+				}
 				if (acronymTable.get(token)!= null)
 				{
 					out += acronymTable.get(token)+" ";

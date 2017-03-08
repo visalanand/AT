@@ -10,5 +10,8 @@ public class AcroRunner
 	{
 		Acronyms ac = new Acronyms();
 		System.out.println(ac.readFile());
+		
+		
+		System.out.println(ac.acronymTable);
 	}
 }
