@@ -12,6 +12,6 @@ public class AcroRunner
 		System.out.println(ac.readFile());
 		
 		
-		System.out.println(ac.acronymTable);
+		//System.out.println(ac.acronymTable);
 	}
 }
