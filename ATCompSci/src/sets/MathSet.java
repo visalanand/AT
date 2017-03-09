@@ -1,60 +1,81 @@
-package sets;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
-
-import static java.lang.System.*;
 
 public class MathSet
 {
-	private Set<Integer> one;
-	private Set<Integer> two;
-
-	public MathSet()
-	{
-	}
+	private Set<String> one;
+	private Set<String> two;
 
 	public MathSet(String o, String t)
 	{
+		one = new TreeSet<String>(Arrays.asList(o.split(" ")));
+		two = new TreeSet<String>(Arrays.asList(t.split(" ")));
 	}
 
 	public Set<Integer> union()
 	{
-		Set<Integer> combined = new TreeSet<Integer>(one);
-		combined.addAll(two);
-		return combined;
+		Set<Integer> ret = new TreeSet<Integer>();
+		
+		for(String s : one)
+			ret.add(Integer.parseInt(s));
+
+		for(String s : two)
+			ret.add(Integer.parseInt(s));
+		
+		return ret;
 	}
 
 	public Set<Integer> intersection()
 	{
-		return null;
+		Set<Integer> ret = new TreeSet<Integer>();
+		
+		for(String s : one)
+			if(two.contains(s))
+				ret.add(Integer.parseInt(s));
+		
+		return ret;
 	}
 
 	public Set<Integer> differenceAMinusB()
 	{
-		return null;
+		Set<Integer> ret = new TreeSet<Integer>();
+		
+		for(String s : one)
+			if(!two.contains(s))
+				ret.add(Integer.parseInt(s));
+		
+		return ret;
 	}
 
 	public Set<Integer> differenceBMinusA()
 	{
-		return null;
+		Set<Integer> ret = new TreeSet<Integer>();
+		
+		for(String s : two)
+			if(!one.contains(s))
+				ret.add(Integer.parseInt(s));
+		
+		return ret;
 	}
 	
 	public Set<Integer> symmetricDifference()
 	{		
-		Set<Integer>a = differenceAMinusB();
-		Set<Integer>b = differenceBMinusA();
-		Set<Integer> added = new TreeSet<Integer>(a);
-		added.addAll(b);
-			
+		Set<Integer> ret = new TreeSet<Integer>();
+		ret.addAll(differenceAMinusB());
+		ret.addAll(differenceBMinusA());
 		
-		return added;
+		return ret;
 	}	
 	
 	public String toString()
 	{
-		return "Set one " + one + "\n" +	"Set two " + two +  "\n";
+		Set<Integer> intOne = new TreeSet<Integer>(), intTwo = new TreeSet<Integer>();
+		for(String x : one)
+			intOne.add(Integer.parseInt(x));
+		for(String x : two)
+			intTwo.add(Integer.parseInt(x));
+		
+		return "Set one " + intOne + "\n" +	"Set two " + intTwo +  "\n";
 	}
 }
