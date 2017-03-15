@@ -20,10 +20,10 @@ public class PartList
 	
 	public PartList(String fileName)
 	{
-		this();
+		
 		try
 		{
-			Scanner file = new Scanner(new File("lab08d.dat"));
+			Scanner file = new Scanner(new File("H:\\"+fileName));
 			//add code here to read from the file 
 			//and add Parts to the map
 			StringTokenizer str = new StringTokenizer(file.nextLine());
@@ -78,7 +78,7 @@ public class PartList
 	
 	public String toString()
 	{
-		String output="";
+		
 
 
 

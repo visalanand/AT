@@ -77,6 +77,6 @@ public class MathSet
 		for(String x : two)
 			intTwo.add(Integer.parseInt(x));
 		
-		return "Set one " + intOne + "\n" +	"Set two " + intTwo +  "\n";
+		return "Set one: " + intOne + "\n" +	"Set two: " + intTwo +  "\n";
 	}
 }
