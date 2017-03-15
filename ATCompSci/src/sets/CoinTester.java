@@ -11,7 +11,7 @@ public class CoinTester {
 		// TODO Auto-generated method stub
 
 		MyHashSet myHash = new MyHashSet();
-		Scanner scan = new Scanner(new File("/Users/rj29/Desktop/coin.txt"));
+		Scanner scan = new Scanner(new File("H:\\coins.txt"));
 		ArrayList<Coin> coin = new ArrayList<Coin>();
 
 		while (scan.hasNextLine()) {
