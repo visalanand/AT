@@ -50,7 +50,10 @@ public class Coin {
 		return -1;
 	}
 	
-	
+	public boolean equals(Coin h){
+		return this == h;
+		
+	}
 	public int hashCode(){
 		return year/10 * denom.hashCode();
 	}

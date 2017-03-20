@@ -42,6 +42,9 @@ public class StudentGradesPt1 {
 	      @param gradeMap the map to modify
 	   */
 	   public static void modifyStudent(Map<String, String> gradeMap){
+		   Scanner scan = new Scanner (System.in);
+		   
+		   String a = scan.nextLine();
 		   
 	   }
 
