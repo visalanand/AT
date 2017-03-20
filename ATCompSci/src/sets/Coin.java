@@ -51,7 +51,7 @@ public class Coin {
 	}
 	
 	public boolean equals(Coin h){
-		return this == h;
+		return this.hashCode() == h.hashCode();
 		
 	}
 	public int hashCode(){
