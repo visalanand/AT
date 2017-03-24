@@ -8,5 +8,8 @@ public class SpanRunner
 {
 	public static void main( String args[] ) throws IOException
 	{
+		SpanishToEnglish span = new SpanishToEnglish();
+		System.out.println(span.read());
+		
 	}
 }

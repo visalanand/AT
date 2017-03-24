@@ -4,11 +4,11 @@ public class Part implements Comparable<Part> {
 	private String make, mode, rest;
 	private int year;
 
-	public Part(String mak, String model,String ret,int yr) {
+	public Part(String mak, String model, String ret, int yr) {
 		make = mak;
-		mode = model; 
+		mode = model;
 		rest = ret;
-	year = yr;
+		year = yr;
 
 	}
 
@@ -25,26 +25,39 @@ public class Part implements Comparable<Part> {
 
 				if (year < rhs.year) {
 					return -1;
-				} else if (year == rhs.year) {
-
+				} 
+				else if (year == rhs.year){ 
+					
+				
+					 if (!rest.equals(rhs.rest)){
+						return -1;
+					}
 					return 0;
-
-				} else if (year > rhs.year) {
+				}
+				
+				
+			
+				
+				else if (year > rhs.year) {
 					return 1;
 				}
-
+			
+			
+			
 			} else if (mode.charAt(0) > rhs.mode.charAt(0)) {
 				return 1;
 			}
 
-		} else if (make.charAt(0) > rhs.make.charAt(0)) {
+		 else if (make.charAt(0) > rhs.make.charAt(0)) {
 			return 1;
 		}
+		}
+	
 		return year;
 
 	}
 
 	public String toString() {
-		return "";
+		return make + " " + mode + " " + rest;
 	}
 }
