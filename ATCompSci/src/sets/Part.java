@@ -30,7 +30,7 @@ public class Part implements Comparable<Part> {
 					
 				
 					 if (!rest.equals(rhs.rest)){
-						return -1;
+						return 1;
 					}
 					return 0;
 				}
@@ -55,6 +55,38 @@ public class Part implements Comparable<Part> {
 	
 		return year;
 
+	}
+
+	public String getMake() {
+		return make;
+	}
+
+	public void setMake(String make) {
+		this.make = make;
+	}
+
+	public String getMode() {
+		return mode;
+	}
+
+	public void setMode(String mode) {
+		this.mode = mode;
+	}
+
+	public String getRest() {
+		return rest;
+	}
+
+	public void setRest(String rest) {
+		this.rest = rest;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
 	}
 
 	public String toString() {

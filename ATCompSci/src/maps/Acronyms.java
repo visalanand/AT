@@ -35,7 +35,7 @@ public class Acronyms {
 				}
 				if (acronymTable.get(token)!= null)
 				{
-					out += acronymTable.get(token)+" ";
+					out += acronymTable.get(token).toLowerCase()+" ";
 				}
 				else{
 					out+= token+" ";

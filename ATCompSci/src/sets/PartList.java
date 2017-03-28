@@ -71,6 +71,11 @@ public class PartList {
 	}
 
 	public String toString() {
-		return partsMap.toString();
+		
+		String s = "";
+		for (Part n: partsMap.keySet()){
+			s+= n.getMake()+" "+n.getMode()+ " "+n.getRest()+"="+ partsMap.get(n)+"\n";
+		}
+		return s;
 	}
 }

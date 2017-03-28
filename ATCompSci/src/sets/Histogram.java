@@ -2,49 +2,44 @@ package sets;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
 
 public class Histogram
 {
-	String sent_;
 	private Map<String,Integer> histogram;
-
-	public Histogram()
-	{
-	}
 
 	public Histogram(String sent)
 	{
-		histogram = new HashMap<String,Integer>();
+		histogram = new TreeMap<String, Integer>();
 		setSentence(sent);
-		sent_ = sent;
 	}
 	
 	public void setSentence(String sent)
 	{
-		String[] ab = sent.split(" ");
-		for (String s: ab){
-			try {
-				histogram.put(s, histogram.get(s)+1);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				histogram.put(s,1);
-
-			}
-			
-		}
+		for(char x : sent.toCharArray())
+			if(!histogram.containsKey(x + ""))
+				histogram.put(x + "", 1);
+			else 
+				histogram.put(x + "", histogram.get(x + "") + 1);
+				
 	}
 
 	public String toString()
 	{
-		String [] str = sent_.split(" ");
-		String output = "";
-		for ( int x =0; x< histogram.size();x++){
-			if (histogram.get(str[x]) != null){
-				output += str[x]+ " "+ histogram.get(str[x])+"\n";
-				histogram.remove(str[x]);
-			}
-		}
+		String output="";
+		Set<Entry<String, Integer>> ts = histogram.entrySet();
+		for(Entry<String, Integer> x : ts)
+			output += x.getKey() + "\t" + populate(x.getValue()) + "\n";
 		
-		return output+"";
+		return output+"\n\n";
+	}
+	
+	public String populate(int n){
+		if(n == 1)
+			return "*";
+		
+		return "*" + populate(n - 1);
 	}
 }
