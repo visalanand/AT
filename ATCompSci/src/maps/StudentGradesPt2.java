@@ -25,6 +25,11 @@ public class StudentGradesPt2 {
 			Scanner scan = new Scanner(System.in);
 
 			String a = scan.nextLine();
+			int cha = (int)a.charAt(0);
+			if ((cha <47) || (cha> 58)  ){
+				System.out.println("Wrong Choice Try again");
+				printMenuAndGetChoice();
+			}
 			if (Integer.parseInt(a) == 1){
 				printGrades(_gradeMap);
 			}
@@ -90,20 +95,18 @@ public class StudentGradesPt2 {
 		   Scanner scan = new Scanner(System.in);
 		   System.out.println("Last Name");
 			String a = scan.nextLine();
-			System.out.println("First Name");
-			String b = scan.nextLine();
+			
 			for (Student st: gradeMap.keySet()){
-				if (st.getLastName() == a){
-					if (st.getFirstName() != b){
-						
-					}
-					else{
-						
-						gradeMap.remove(st);
-						idToStudentMap.remove(st.getId());
-					}
+				if (st.lastName.equals( a)){
+					gradeMap.remove(st);
+					idToStudentMap.remove(st.getId());
+				}	
 				}
-			}
+			
+				
+				_gradeMap = gradeMap;
+				_idToStudentMap = idToStudentMap;
+			
 			printMenuAndGetChoice();
 	   }
 	   /**

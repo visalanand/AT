@@ -21,6 +21,7 @@ public class StudentGradesPt1 {
 		Scanner scan = new Scanner(System.in);
 
 		String a = scan.nextLine();
+		
 		return a;
 
 	}
@@ -33,7 +34,9 @@ public class StudentGradesPt1 {
 	 */
 	public static void printGrades(Map<String, String> gradeMap) {
 
-		System.out.println(gradeMap.toString());
+		 for (String a : gradeMap.keySet()){
+			 System.out.println(a + " Grade: "+gradeMap.get(a));
+		 }
 
 	}
 
@@ -101,6 +104,9 @@ public class StudentGradesPt1 {
 		}
 		printMenuAndGetChoice();
 
+	}
+	public static void main(String[] args) {
+		printMenuAndGetChoice();
 	}
 
 }
