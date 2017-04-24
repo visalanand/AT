@@ -32,7 +32,18 @@ public class BinarySearchTree
 		
 		return tree;
 	}
-
+	public boolean search(TreeNode tree, Comparable value){
+		if (tree.getValue() == value ){
+			return true;
+		}
+		if (tree.getLeft() != null){
+			return search(tree.getLeft(),value);
+		}
+		else if (tree.getRight() != null){
+			return search(tree.getRight(),value);
+		}
+		else{
+	}
    public void inOrder()
 	{
 		inOrder(root);
