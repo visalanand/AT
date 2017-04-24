@@ -1,5 +1,7 @@
 
 import static java.lang.System.*;
+
+import java.util.Collections;
 import java.util.LinkedList;
 
 public class BinarySearchTree
@@ -33,16 +35,30 @@ public class BinarySearchTree
 		return tree;
 	}
 	public boolean search(TreeNode tree, Comparable value){
-		if (tree.getValue() == value ){
-			return true;
+		boolean noLeavesLeft = false;
+		TreeNode temp;
+		int leaves = getNumLevels();
+		int count = 0;
+		while ( count < leaves ){
+			if (tree.getValue() == value){
+				return true;
+			}
+			else if (tree.getRight() != null) {
+				temp = tree;
+				tree = tree.getRight();
+				count++;
+			}
+			else if (tree.getLeft() != null){
+				temp = tree;
+				tree = tree.getLeft();
+				count++;
+			}
+			else {
+				tree = temp;
+				
+			}
 		}
-		if (tree.getLeft() != null){
-			return search(tree.getLeft(),value);
-		}
-		else if (tree.getRight() != null){
-			return search(tree.getRight(),value);
-		}
-		else{
+		return false;
 	}
    public void inOrder()
 	{

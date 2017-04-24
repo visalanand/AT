@@ -40,6 +40,9 @@ public class TreeNode implements Treeable
 	{
 		return rightTreeNode;
 	}
+	public boolean hasLeaves(){
+		return leftTreeNode != null && rightTreeNode != null;
+	}
 
 	public void setValue(Comparable value)
 	{
