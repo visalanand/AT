@@ -12,7 +12,7 @@ public class HashTable {
 
 	}
 
-	public void add(Object obj) {
+	public void add(Number obj) {
 		int i = obj.hashCode();
 		table[i].add(obj);
 
