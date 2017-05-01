@@ -1,4 +1,4 @@
-
+package trees;
 import static java.lang.System.*;
 
 import java.util.Collections;
@@ -34,9 +34,29 @@ public class BinarySearchTree
 		
 		return tree;
 	}
+	
+	
+	
+	public boolean remove (TreeNode tree, TreeNode higher){
+		
+		if (higher == tree){
+			tree = null;
+			return true;
+		}
+		
+		if (remove(tree,higher.getLeft())){
+			return true;
+		}
+		else if (remove(tree, higher.getRight())){
+			return true;
+			
+		}
+		else {
+			return false;
+		}
+	}
 	public boolean search(TreeNode tree, Comparable value){
-		boolean noLeavesLeft = false;
-		TreeNode temp;
+		TreeNode temp = null;
 		int leaves = getNumLevels();
 		int count = 0;
 		while ( count < leaves ){
@@ -99,6 +119,22 @@ public class BinarySearchTree
 			return 1+getNumLevels(tree.getLeft());
 		else
 			return 1+getNumLevels(tree.getRight());
+	}
+	
+	
+	public int getWidth(){
+		TreeNode temp = root;
+		int count = 0; 
+		while (! (temp.getRight()== null)|| !(temp.getLeft()==null)){
+			count++;
+			if (temp.getLeft()!= null)
+			temp = temp.getLeft();
+			else if (temp.getRight() != null){
+				temp = temp.getRight();
+			}
+					
+		}
+		return count;
 	}
 
 

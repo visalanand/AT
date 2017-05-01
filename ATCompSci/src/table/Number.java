@@ -5,7 +5,7 @@ public class Number
 	
 	public Number(int value)
 	{
-
+		theValue = value;
 
 	}	
 	
@@ -21,7 +21,7 @@ public class Number
 	
 	public int hashCode()
 	{
-		return 0;
+		return theValue%10;
 	}
 
 	public String toString()
