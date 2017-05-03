@@ -1,21 +1,19 @@
 package table;
 
 import java.util.LinkedList;
-import java.util.Scanner;
-import static java.lang.System.*;
 
-public class HashTable {
-	private LinkedList<Number>[] table;
+public class HashTableWord {
+	private LinkedList<Word>[] table;
 
-	public HashTable() {
+	public HashTableWord() {
 		table = new LinkedList[10];
 		for (int x= 0; x<table.length;x++){
-			table[x] = new LinkedList<Number>();
+			table[x] = new LinkedList<Word>();
 		}
 
 	}
 
-	public void add(Number obj) {
+	public void add(Word obj) {
 		int i = obj.hashCode();
 		table[i].add(obj);
 	}
@@ -31,3 +29,4 @@ public class HashTable {
 		return output;
 	}
 }
+

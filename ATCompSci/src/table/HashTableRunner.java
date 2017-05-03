@@ -12,10 +12,10 @@ public class HashTableRunner {
 		// try{
 		// make a new table
 		HashTable hash = new HashTable();
-		Scanner scan = new Scanner(new File("H:\\numbers.dat"));
+		Scanner scan = new Scanner(new File("H:\\num.dat"));
 		// read from the file
 		while (scan.hasNextLine()) {
-			int x = Integer.parseInt(scan.nextLine());
+			int x = Integer.parseInt(scan.nextLine().trim());
 			hash.add(new Number(x));
 		}
 
