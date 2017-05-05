@@ -2,8 +2,10 @@ package table;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeSet;
 
 public class PhoneBook {
@@ -24,7 +26,13 @@ public class PhoneBook {
 		hash.put(op.name, op.number);
 	}
 	public void display (){
-		TreeSet <String> set = hash.keySet();
+		Set <String> set = hash.keySet();
+		Iterator<String> iter = set.iterator();
+		for (int x = 0; x<hash.size();x++){
+			String n = iter.next();
+			System.out.println(n +"\t"+ hash.get(n)); 
+		}
+		
 	}
 	
 }
