@@ -10,11 +10,11 @@ public class TeamSet {
 	}
 	
 	public double getAvgWeight(){
-		double sum = 0;
+		int sum = 0;
 		for(Wrestler w : team)
 			sum += w.getWeight();
 		
-		return sum/team.size();
+		return ((double)sum)/team.size();
 	}
 	
 	public HashSet<Wrestler> getLightweights(){
