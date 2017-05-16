@@ -1,40 +1,43 @@
 package maps;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class ClubMap {
-	HashMap<Student, String> club = new HashMap<Student, String>();
-
-	public void join(Student student) {
-		club.put(student, student.firstName);
+	HashMap<String, Set<Student>> club = new HashMap<String, Set<Student>>();
+	
+	public ClubMap(){
+		
+	}
+	public void join(Student student, String clubName) {
+		Set<Student> set = new TreeSet<Student>();
+		if(!club.containsKey(clubName)){
+			
+		set.add(student);
+		club.put(clubName, set);
+		}
+		else{
+			set = club.get(clubName);
+			club.remove(clubName);
+			set.add(student);
+			club.put(clubName, set);
+		}
+		
 	}
 
 	public String toString() {
-
 		String s = "";
-		for (Student a : club.keySet()) {
-			s += a + "\n";
+		for (String cub : club.keySet()){
+			s+= cub+": "+club.get(cub)+"\n";
 		}
 		return s;
+		
+		
 	}
 
-	public ClubMap union2(ClubMap a) {
-		boolean bool = false;
-		ClubMap cl = new ClubMap();
-		for (Student s : club.keySet()) {
-			for (Student s2 : a.club.keySet()) {
-				if (s2.equals(s)) {
-					bool = true;
-					break;
-				}
-
-			}
-			if (!bool) {
-				cl.join(s);
-			}
-			bool = false;
-		}
-		return cl;
-	}
+	
 
 }

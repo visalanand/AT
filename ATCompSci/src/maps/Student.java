@@ -8,9 +8,9 @@ public class Student implements Comparable {
 
 	}
 
-	public Student(String _fir, String _last, int _id) {
+	public Student(String _fir, int _id) {
 		firstName = _fir;
-		lastName = _last;
+		
 		id = _id;
 	}
 
@@ -22,13 +22,13 @@ public class Student implements Comparable {
 		this.firstName = firstName;
 	}
 
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+//	public String getLastName() {
+//		return lastName;
+//	}
+//
+//	public void setLastName(String lastName) {
+//		this.lastName = lastName;
+//	}
 
 	public int getId() {
 		return id;
@@ -46,13 +46,51 @@ public class Student implements Comparable {
 	public int compareTo(Object arg0) {
 		// TODO Auto-generated method stub
 		Student st = (Student) arg0;
-		if (this.hashCode() == st.hashCode())
-			return 0;
-		else if (this.hashCode() < st.hashCode()) {
+		int x= (int)this.firstName.charAt(0);
+		int a= (int)st.firstName.charAt(0);
+		if(x<a){
 			return -1;
 		}
-		else {
+		else if (x>a){
 			return 1;
 		}
+		return 0;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		if (firstName == null) {
+			if (other.firstName != null)
+				return false;
+		} else if (!firstName.equals(other.firstName))
+			return false;
+		if (id != other.id)
+			return false;
+		if (lastName == null) {
+			if (other.lastName != null)
+				return false;
+		} else if (!lastName.equals(other.lastName))
+			return false;
+		return true;
+	}
+
+	public String toString(){
+		return firstName + " "+id;
 	}
 }
