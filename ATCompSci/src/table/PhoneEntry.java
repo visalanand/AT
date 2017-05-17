@@ -6,4 +6,5 @@ public class PhoneEntry {
 		name = _name;
 		number = _number;
 	}
+	
 }
