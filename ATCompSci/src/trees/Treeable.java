@@ -1,4 +1,4 @@
-
+package trees;
 public interface Treeable
 {
 	public Object getValue();

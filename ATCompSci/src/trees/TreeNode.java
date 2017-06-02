@@ -1,4 +1,4 @@
-
+package trees;
 public class TreeNode implements Treeable
 {
 	private Comparable treeNodeValue;
