@@ -15,7 +15,7 @@ public class BSTreeRunner
 	   tree.add(9);
 	   tree.add(10);
 	   
-	   System.out.println("In Order");
+	 System.out.println("In Order");
 	 tree.inOrder();
 	 System.out.println("PRE Order");
 	 tree.postOrder();
